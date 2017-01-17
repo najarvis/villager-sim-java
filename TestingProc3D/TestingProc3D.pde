@@ -8,7 +8,8 @@ Point[] points;
 boolean[] keys = new boolean[256]; // Store positions (up / down) for each key.
 
 double acc = 0.01;
-double speed = acc;
+double speed = 0;
+double max_speed = 6;
 
 void setup() {
   size(512, 512, P3D); // You can't use variables here.
@@ -36,8 +37,9 @@ void update() {
   if (keys[(int)'s']) OFFSET_Y+=8;
   if (keys[(int)'a']) OFFSET_X-=8;
   if (keys[(int)'d']) OFFSET_X+=8;
+  if (keys[(int)'f']) saveFrame("cap.png");
   OFFSET_Y -= speed;
-  speed += acc;
+  if (speed < max_speed) speed += acc;
   for (Point p : points){
     p.update(OFFSET_X, OFFSET_Y);
   }
