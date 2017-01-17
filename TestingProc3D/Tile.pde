@@ -1,4 +1,4 @@
-static int OFFSET = Short.MAX_VALUE / 2;
+//static int OFFSET = Short.MAX_VALUE / 2;
 
 class Tile {
   
